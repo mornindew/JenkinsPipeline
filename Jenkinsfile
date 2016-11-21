@@ -11,10 +11,10 @@ node {
     
     stage 'Process'
 
-    def externalMethod = load("loadedFile.groovy")
+//    def externalMethod = load("loadedFile.groovy")
 
     // Call the method we defined in externalMethod.
-    externalMethod.lookAtThis("Steve")
+//    externalMethod.lookAtThis("Steve")
 
     // Now load 'externalCall.groovy'.
  //   def externalCall = load("loadedFile.groovy")
