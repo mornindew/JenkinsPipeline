@@ -19,8 +19,22 @@ node {
 //    list.each { "JSON Line:  " println it }
 
 
-    def externalMethod  =  load "${workspace}@script/loadedFile.groovy"
-    def configValue = externalMethod.processJson(response.content)
+//    def externalMethod  =  load "${workspace}@script/loadedFile.groovy"
+//    def configValue = externalMethod.processJson(response.content)
+
+    def http = new HTTPBuilder( 'http://ajax.googleapis.com' )
+	http.request( GET, JSON ) {
+  	uri.path = '/ajax/services/search/web'
+  	uri.query = [ v:'1.0', q: 'Calvin and Hobbes' ]
+
+  	response.success = { resp, json ->
+    assert json.size() == 3
+    println "Query response: "
+    json.responseData.results.each {
+      println "  ${it.titleNoFormatting} : ${it.visibleUrl}"
+    }
+  }
+}
 
 
 }
