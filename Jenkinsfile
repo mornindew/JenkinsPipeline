@@ -8,9 +8,12 @@ node {
     
     stage 'Process'
 
+    def jsonSlurper = new JsonSlurper()
+    def object = jsonSlurper.parseText('{ "name": "John Doe" } /* some comment */')
+
    def externalMethod  =  load "${workspace}@script/loadedFile.groovy"
 
 // Call the method we defined in externalMethod.
-    def configValue = externalMethod.checkConfigs("Steve")
+    def configValue = externalMethod.checkConfigs(object, object)
     println("configValue: "+configValue)
 }
