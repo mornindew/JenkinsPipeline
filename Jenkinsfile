@@ -8,9 +8,9 @@ node {
     
     stage 'Process'
 
- //   def externalMethod = load("loadedFile.groovy")
    def externalMethod  =  load "${workspace}@script/loadedFile.groovy"
 
 // Call the method we defined in externalMethod.
-    externalMethod.lookAtThis("Steve")
+    def configValue = externalMethod.checkConfigs("Steve")
+    println("configValue: "+configValue)
 }
