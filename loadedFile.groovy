@@ -9,4 +9,20 @@ def checkConfigs(def deployedConfig, def expectedConfig) {
     return false;
 }
 
+def processJson(String json) {
+    def jsonSlurper = new JsonSlurper()
+    def jsonObject = jsonSlurper(json)
+    jsonSlurper = null
+    for(int i = 0; i < jsonObject.size(); i++) {
+        switch(jsonObject[i].name) {
+            case "Source":
+                println("Source: "+jsonObject[i].name)
+                break
+            case "Version":
+                println("Version: "+jsonObject[i].name)
+                break
+        }
+    }
+}
+
 return this;
