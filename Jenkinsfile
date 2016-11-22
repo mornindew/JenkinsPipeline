@@ -13,7 +13,9 @@ node {
     stage 'Process'
 
     def jsonSlurper = new JsonSlurper()
-    def object = jsonSlurper.parseText('{ "name": "John Doe" } /* some comment */')
+    def object = jsonSlurper.parseText('{ "name": "John Doe" }')
+
+    println("Parsed Text: ")
 
    def externalMethod  =  load "${workspace}@script/loadedFile.groovy"
 
