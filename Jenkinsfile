@@ -6,26 +6,20 @@ import groovy.json.JsonSlurper
 node {
    stage 'Setup'
    
-   def response = httpRequest 'http://configsvc.dev-charter.net:8080/configmiddle/versions'
+   def versionsResponse = httpRequest 'http://configsvc.dev-charter.net:8080/configmiddle/versions'
+   def deployedVersionResponse = httpRequest 'http://configsvc.dev-charter.net:8080/configmiddle/versions'
     
     stage 'Test Configs'
 
-// Parse the response
-    def list = new JsonSlurper().parseText(response.content)
-    def secondList = new JsonSlurper().parseText(response.content)
+// Parse the versionsResponse
+    def list = new JsonSlurper().parseText(versionsResponse.content)
+    def deployedVersions = new JsonSlurper().parseText(deployedVersionResponse.content) 
 
-// Print them out to make sure
-//   list.each { "JSON Line:  " println it }
-
-// def z = 0
-//while (z < list.size) {
-//   println list[z]
-//    z++
-//}   
-
-for (rec in list){
-	if(secondList.contains(rec)){
-		println "Contains" +rec
+//Check to confirm that the correct versions are deployed
+for (rec in deployedVersions){
+	if(!list.contains(rec)){
+		println "DOES NOT HAVE THE RIGHT VERSION" +rec
+		break
 	}
 }
 }
