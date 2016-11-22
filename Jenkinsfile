@@ -12,7 +12,11 @@ node {
     
     stage 'Test Configs'
 
-    def jsonSlurper = new JsonSlurper().parseText(response.content)
-    
+// Parse the response
+    def list = new JsonSlurper().parseText(response.content)
+
+// Print them out to make sure
+    list.each { "JSON Line:  " println it }
+
 
 }
