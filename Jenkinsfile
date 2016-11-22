@@ -23,7 +23,7 @@ for (rec in deployedVersions){
 	}
 	else{
 	    println "Correct Version Found" +rec
-	    throw err
+	    build.getExecutor().interrupt()
 	}
 }
 
