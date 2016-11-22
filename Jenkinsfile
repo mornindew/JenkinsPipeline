@@ -16,10 +16,14 @@ node {
 // Print them out to make sure
 //   list.each { "JSON Line:  " println it }
 
- def z = 0
-while (z < list.size) {
-    println list[z]
-    z++
-}   
+// def z = 0
+//while (z < list.size) {
+//   println list[z]
+//    z++
+//}   
 
+for (rec in list){
+	printlin rec
+	break
+}
 }
