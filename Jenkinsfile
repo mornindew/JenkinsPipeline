@@ -11,15 +11,6 @@ node {
 	   
 	   //get the currently deployed version for a service.  This will be an argument passed in
 	   def deployedVersionResponse = httpRequest 'http://configsvc.dev-charter.net:8080/configmiddle/versions'
-
-
-	   def urlConnect = new URL(https://www.dev-charter.net/api/pub/customertrackingedge/v1/config-check)
-		def connection = urlConnect.openConnection()
-		//Set all of your needed headers
-		connection.setRequestProperty("Authorization", "Basic Y2hhcnRlcm5ldDpDaGFydDNybjN0")
-
-			responseText = connection.content.text
-			println(responseText)
     
    stage 'Test Configs'
 
