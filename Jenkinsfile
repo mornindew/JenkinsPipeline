@@ -21,5 +21,8 @@ for (rec in deployedVersions){
 		println "DOES NOT HAVE THE RIGHT VERSION" +rec
 		break
 	}
+	else{
+	    println "Correct Version Found" +rec
+	}
 }
 }
