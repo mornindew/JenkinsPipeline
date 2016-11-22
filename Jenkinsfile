@@ -14,6 +14,12 @@ node {
     def list = new JsonSlurper().parseText(response.content)
 
 // Print them out to make sure
-    list.each { "JSON Line:  " println it }
+//   list.each { "JSON Line:  " println it }
+
+ def z = 0
+while (z < list.size) {
+    println it
+    z++
+}   
 
 }
