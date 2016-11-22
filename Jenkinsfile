@@ -19,4 +19,8 @@ node {
     list.each { "JSON Line:  " println it }
 
 
+    def externalMethod  =  load "${workspace}@script/loadedFile.groovy"
+    def configValue = externalMethod.processJson(response.content)
+
+
 }
