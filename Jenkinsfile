@@ -23,7 +23,7 @@ node {
 //}   
 
 for (rec in list){
-	printlin rec
+	println rec
 	break
 }
 }
