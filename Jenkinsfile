@@ -18,10 +18,8 @@ node {
 		//Set all of your needed headers
 		connection.setRequestProperty("Authorization", "Basic Y2hhcnRlcm5ldDpDaGFydDNybjN0")
 
-		if(connection.responseCode == 200){
 			responseText = connection.content.text
 			println(responseText)
-		}
     
    stage 'Test Configs'
 
