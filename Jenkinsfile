@@ -25,4 +25,9 @@ for (rec in deployedVersions){
 	    println "Correct Version Found" +rec
 	}
 }
+
+    stage 'do more stuff'
+
+
+    stage 'Make deployments great again'
 }
