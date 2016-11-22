@@ -19,11 +19,10 @@ node {
 for (rec in deployedVersions){
 	if(!list.contains(rec)){
 		println "DOES NOT HAVE THE RIGHT VERSION" +rec
-		break
+		throw new InterruptedException()
 	}
 	else{
 	    println "Correct Version Found" +rec
-	    throw new InterruptedException()
 	}
 }
 
