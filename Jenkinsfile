@@ -13,10 +13,10 @@ node {
     stage 'Test Configs'
 
 // Parse the response
-    def list = new JsonSlurper().parseText(response.content)
+//    def list = new JsonSlurper().parseText(response.content)
 
 // Print them out to make sure
-    list.each { "JSON Line:  " println it }
+//    list.each { "JSON Line:  " println it }
 
 
     def externalMethod  =  load "${workspace}@script/loadedFile.groovy"
