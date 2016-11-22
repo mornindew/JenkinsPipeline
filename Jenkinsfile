@@ -1,6 +1,9 @@
 #!groovy​
 
 import groovy.json.JsonSlurper
+import groovyx.net.http.HTTPBuilder
+import static groovyx.net.http.Method.GET
+import static groovyx.net.http.ContentType.JSON
 
 
 node {
