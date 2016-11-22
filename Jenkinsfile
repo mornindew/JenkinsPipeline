@@ -12,6 +12,7 @@ node {
 
 // Parse the response
     def list = new JsonSlurper().parseText(response.content)
+    def secondList = new JsonSlurper().parseText(response.content)
 
 // Print them out to make sure
 //   list.each { "JSON Line:  " println it }
@@ -23,7 +24,8 @@ node {
 //}   
 
 for (rec in list){
-	println rec
-	break
+	if(secondList.contains(rec)){
+		println "Contains" +rec
+	}
 }
 }
