@@ -18,7 +18,7 @@ node {
 
  def z = 0
 while (z < list.size) {
-    println it
+    println list[z]
     z++
 }   
 
